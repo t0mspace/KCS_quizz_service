@@ -1,0 +1,20 @@
+#docker-compose.yml
+services:
+  # postgresql
+  postgres:
+    container_name: postgres
+    image: postgres:latest
+    restart: always
+    environment:
+      PGDATA: /var/lib/postgresql/data/pgdata/
+      POSTGRES_PASSWORD: 'root' # login and password
+      POSTGRES_USER: 'root' # login and password
+      POSTGRES_DATABASE: 'rh_aubay' # database name
+      POSTGRES_INITDB_ARGS: "--locale-provider=icu --icu-locale=en_US_POSIX"
+    ports:
+      - '5432:5432'
+    volumes:
+      - data:/var/lib/postgresql/data/pgdata
+      - ./db_structure.sql:/docker-entrypoint-initdb.d/db_structure.sql
+volumes:
+  data:
