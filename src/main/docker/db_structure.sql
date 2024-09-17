@@ -1,13 +1,7 @@
--- DROP SEQUENCE IF EXISTS user_id_seq;
--- DROP SEQUENCE IF EXISTS role_id_seq;
-DROP TABLE IF EXISTS aubay.quizz CASCADE;
--- DROP TABLE IF EXISTS aubay.user CASCADE;
-DROP SCHEMA IF EXISTS aubay;
 
-CREATE SCHEMA IF NOT EXISTS aubay ;
+DROP SCHEMA IF EXISTS aubay CASCADE;
+CREATE SCHEMA IF NOT EXISTS aubay;
 
--- CREATE SEQUENCE aubay.user_id_seq;
--- CREATE SEQUENCE aubay.role_id_seq;
 --
 --
 -- CREATE TABLE aubay.role
@@ -71,13 +65,17 @@ CREATE SCHEMA IF NOT EXISTS aubay ;
 --   "updated_by" integer
 -- );
 
-CREATE TABLE "quizz" (
-  id integer NOT NULL,
-  "id_subject" int,
-  "name" varchar(250) UNIQUE NOT NULL,
-  "description" TEXT,
-  "created_by" integer NOT NULL,
-  "updated_by" int
+CREATE TABLE aubay.subject (
+   id INT primary key GENERATED ALWAYS AS IDENTITY,
+   name VARCHAR(250) NOT NULL UNIQUE
+);
+
+
+CREATE TABLE aubay.quizz (
+  id INT primary key GENERATED ALWAYS AS IDENTITY,
+  id_subject INTEGER REFERENCES aubay.subject (id),
+  name varchar(250) UNIQUE NOT NULL,
+   description TEXT
 );
 --
 -- CREATE TABLE "quiz_test" (
@@ -86,18 +84,15 @@ CREATE TABLE "quizz" (
 --   "id_test" int NOT NULL
 -- );
 
-CREATE TABLE "subject" (
-   "id" integer NOT NULL,
-  "name" integer UNIQUE NOT NULL
-);
 
-CREATE TABLE "question" (
+
+CREATE TABLE aubay.question (
   "id" INT GENERATED ALWAYS AS IDENTITY,
   "id_quiz" integer,
   "content" TEXT
 );
 
-CREATE TABLE "answer" (
+CREATE TABLE aubay.answer (
   "id" INT GENERATED ALWAYS AS IDENTITY,
   "id_question" integer NOT NULL,
   "content" TEXT,
@@ -150,7 +145,7 @@ CREATE TABLE "answer" (
 --
 -- ALTER TABLE "quiz_test" ADD CONSTRAINT "test_to_quiz_test" FOREIGN KEY ("id_test") REFERENCES "test" ("id");
 --
--- ALTER TABLE "quiz" ADD CONSTRAINT "quiz_to_subject" FOREIGN KEY ("id_subject") REFERENCES "subject" ("id");
+-- ALTER TABLE aubay.quizz ADD CONSTRAINT "quiz_to_subject" FOREIGN KEY ("id_subject") REFERENCES aubay.subject ("id");
 --
 -- ALTER TABLE "question" ADD CONSTRAINT "question_to_quiz" FOREIGN KEY ("id_quiz") REFERENCES "quiz" ("id");
 --

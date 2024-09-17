@@ -2,16 +2,19 @@ package com.aubay.rh_quizz.model;
 
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
+import records.QuestionToSave;
+import records.SubjectToSave;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Table(name = "quizz",schema = "aubay")
 public class QuizzEntity {
 
     @Id
-    //@GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Nullable
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 
@@ -22,18 +25,24 @@ public class QuizzEntity {
     @Column(name = "description", length = 250, nullable = true)
     private String description;
 
-    @OneToOne(targetEntity = UserEntity.class, optional = false)
-    private UserEntity createdBy;
-
-    @OneToOne(targetEntity = UserEntity.class, optional = true)
-    private UserEntity updatedBy;
-
     @ManyToOne
-    @JoinColumn(name = "id_subject", nullable = false)
+    @JoinColumn( // this will add a user_id column to the message table as a foreign key
+            name = "id_subject", // specifies the name of the foreign key column in the database
+            referencedColumnName = "id" // primary key of the user who owns this MESSAGE
+    )
     private SubjectEntity subject;
 
-    @OneToMany(mappedBy = "id_quizz")
-    private Collection<QuestionEntity> questions;
+    @OneToMany(targetEntity = QuestionEntity.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<QuestionEntity> questions = new ArrayList<>();;
+
+    public QuizzEntity(QuestionToSave question, SubjectEntity subject, String name) {
+        this.name = name;
+        this.subject=subject;
+    }
+
+    public QuizzEntity() {
+
+    }
 
     public String getName() {
         return name;
@@ -52,22 +61,6 @@ public class QuizzEntity {
         this.description = description;
     }
 
-    public UserEntity getCreatedBy() {
-        return createdBy;
-    }
-
-    public void setCreatedBy(UserEntity createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public UserEntity getUpdatedBy() {
-        return updatedBy;
-    }
-
-    public void setUpdatedBy(UserEntity updatedBy) {
-        this.updatedBy = updatedBy;
-    }
-
     public SubjectEntity getSubject() {
         return subject;
     }
@@ -80,7 +73,7 @@ public class QuizzEntity {
         return (QuestionEntity) questions;
     }
 
-    public void setQuestions(QuestionEntity question) {
+    public void addQuestions(QuestionEntity question) {
         if(!this.questions.contains(question))
         {
             this.questions.add(question);

@@ -8,7 +8,7 @@ import java.util.Collection;
 @Table(name = "question",schema = "aubay")
 public class QuestionEntity {
     @Id
-    //@GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 
@@ -19,15 +19,11 @@ public class QuestionEntity {
     @JoinColumn(name = "id_quizz", nullable = false)
     private QuizzEntity quizz;
 
-    @OneToMany(mappedBy = "id_quizz")
-    private Collection<AnswerEntity> questions;
+    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Collection<AnswerEntity> answers;
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getContent() {
@@ -44,5 +40,13 @@ public class QuestionEntity {
 
     public void setQuizz(QuizzEntity quizz) {
         this.quizz = quizz;
+    }
+
+    public Collection<AnswerEntity> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(Collection<AnswerEntity> answers) {
+        this.answers = answers;
     }
 }

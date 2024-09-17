@@ -1,5 +1,6 @@
 package com.aubay.rh_quizz.repository;
 
+import com.aubay.rh_quizz.model.QuestionEntity;
 import com.aubay.rh_quizz.model.QuizzEntity;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
