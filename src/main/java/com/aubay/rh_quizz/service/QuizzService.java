@@ -24,9 +24,9 @@ public class QuizzService {
         return quizzRepository.save(quizz);
     }
 
-    public QuizzEntity update(QuizzToSave quizz) {
-        return quizzRepository.save(quizz);
-    }
+//    public QuizzEntity update(QuizzToSave quizz) {
+//        return quizzRepository.up(quizz);
+//    }
 
     public QuizzEntity findById(int id) {
         return quizzRepository.findById(id).orElse(null);
