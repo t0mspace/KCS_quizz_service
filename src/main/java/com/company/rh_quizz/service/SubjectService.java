@@ -1,7 +1,7 @@
-package com.aubay.rh_quizz.service;
+package com.company.rh_quizz.service;
 
-import com.aubay.rh_quizz.model.SubjectEntity;
-import com.aubay.rh_quizz.repository.SubjectRepository;
+import com.company.rh_quizz.model.SubjectEntity;
+import com.company.rh_quizz.repository.SubjectRepository;
 import org.springframework.stereotype.Service;
 import records.SubjectToSave;
 

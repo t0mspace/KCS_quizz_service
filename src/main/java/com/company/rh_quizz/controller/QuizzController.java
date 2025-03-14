@@ -1,7 +1,7 @@
-package com.aubay.rh_quizz.controller;
+package com.company.rh_quizz.controller;
 
-import com.aubay.rh_quizz.model.QuizzEntity;
-import com.aubay.rh_quizz.service.QuizzService;
+import com.company.rh_quizz.model.QuizzEntity;
+import com.company.rh_quizz.service.QuizzService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

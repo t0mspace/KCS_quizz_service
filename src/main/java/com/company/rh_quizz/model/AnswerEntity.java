@@ -1,10 +1,9 @@
-package com.aubay.rh_quizz.model;
+package com.company.rh_quizz.model;
 
-import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "answer",schema = "aubay")
+@Table(name = "answer",schema = "public")
 public class AnswerEntity {
 
     @Id

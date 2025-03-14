@@ -1,4 +1,4 @@
-package com.aubay.rh_quizz;
+package com.company.rh_quizz;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

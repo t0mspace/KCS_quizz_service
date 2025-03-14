@@ -1,4 +1,4 @@
-package com.aubay.rh_quizz;
+package com.company.rh_quizz;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

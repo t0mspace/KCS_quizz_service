@@ -1,11 +1,11 @@
-package com.aubay.rh_quizz.model;
+package com.company.rh_quizz.model;
 
 import jakarta.persistence.*;
 
 import java.util.Collection;
 
 @Entity
-@Table(name = "question",schema = "aubay")
+@Table(name = "question",schema = "public")
 public class QuestionEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

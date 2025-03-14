@@ -37,9 +37,9 @@ CREATE SCHEMA IF NOT EXISTS public;
 
 
 
--- INSERT INTO aubay.user (id, username, id_role, email, token, password) VALUES (1,'dtrump', 1, 'dtrump@gmail.com', null, '$2a$12$RkcdJn2kLrAS9fmvDv/CWehqID8nB3XBWXOtazhQ2PY1ZFwDB3L76');
--- INSERT INTO aubay.user (id,username, id_role, email, token, password) VALUES (2,'emusk', 1, 'emusk@gmail.com', null, '$2a$12$RkcdJn2kLrAS9fmvDv/CWehqID8nB3XBWXOtazhQ2PY1ZFwDB3L76');
--- INSERT INTO aubay.user (id,username, id_role, email, token, password) VALUES (3,'aeinstein', 1, 'aeinstein@gmail.com', null, '$2a$12$RkcdJn2kLrAS9fmvDv/CWehqID8nB3XBWXOtazhQ2PY1ZFwDB3L76');
+-- INSERT INTO public.user (id, username, id_role, email, token, password) VALUES (1,'dtrump', 1, 'dtrump@gmail.com', null, '$2a$12$RkcdJn2kLrAS9fmvDv/CWehqID8nB3XBWXOtazhQ2PY1ZFwDB3L76');
+-- INSERT INTO public.user (id,username, id_role, email, token, password) VALUES (2,'emusk', 1, 'emusk@gmail.com', null, '$2a$12$RkcdJn2kLrAS9fmvDv/CWehqID8nB3XBWXOtazhQ2PY1ZFwDB3L76');
+-- INSERT INTO public.user (id,username, id_role, email, token, password) VALUES (3,'aeinstein', 1, 'aeinstein@gmail.com', null, '$2a$12$RkcdJn2kLrAS9fmvDv/CWehqID8nB3XBWXOtazhQ2PY1ZFwDB3L76');
 --
 
  CREATE TYPE "test_status" AS ENUM (
@@ -159,7 +159,7 @@ CREATE TABLE public.answer (
 --
 -- ALTER TABLE "quiz_test" ADD CONSTRAINT "test_to_quiz_test" FOREIGN KEY ("id_test") REFERENCES "test" ("id");
 --
--- ALTER TABLE aubay.quizz ADD CONSTRAINT "quiz_to_subject" FOREIGN KEY ("id_subject") REFERENCES aubay.subject ("id");
+-- ALTER TABLE public.quizz ADD CONSTRAINT "quiz_to_subject" FOREIGN KEY ("id_subject") REFERENCES public.subject ("id");
 --
 -- ALTER TABLE "question" ADD CONSTRAINT "question_to_quiz" FOREIGN KEY ("id_quiz") REFERENCES "quiz" ("id");
 --

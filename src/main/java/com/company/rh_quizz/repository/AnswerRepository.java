@@ -1,6 +1,6 @@
-package com.aubay.rh_quizz.repository;
+package com.company.rh_quizz.repository;
 
-import com.aubay.rh_quizz.model.QuizzEntity;
+import com.company.rh_quizz.model.QuizzEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

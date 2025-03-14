@@ -1,8 +1,8 @@
-package com.aubay.rh_quizz;
+package com.company.rh_quizz;
 
-import com.aubay.rh_quizz.model.QuizzEntity;
-import com.aubay.rh_quizz.service.QuizzService;
-import com.aubay.rh_quizz.service.SubjectService;
+import com.company.rh_quizz.model.QuizzEntity;
+import com.company.rh_quizz.service.QuizzService;
+import com.company.rh_quizz.service.SubjectService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

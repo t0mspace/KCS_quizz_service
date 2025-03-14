@@ -1,8 +1,8 @@
-package com.aubay.rh_quizz.service;
+package com.company.rh_quizz.service;
 
-import com.aubay.rh_quizz.model.QuizzEntity;
-import com.aubay.rh_quizz.model.SubjectEntity;
-import com.aubay.rh_quizz.repository.QuizzRepository;
+import com.company.rh_quizz.model.QuizzEntity;
+import com.company.rh_quizz.model.SubjectEntity;
+import com.company.rh_quizz.repository.QuizzRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import records.QuizzToSave;

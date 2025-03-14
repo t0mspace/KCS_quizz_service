@@ -1,16 +1,15 @@
-package com.aubay.rh_quizz.model;
+package com.company.rh_quizz.model;
 
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import records.QuestionToSave;
-import records.SubjectToSave;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 @Entity
-@Table(name = "quizz",schema = "aubay")
+@Table(name = "quizz",schema = "public")
 public class QuizzEntity {
 
     @Id

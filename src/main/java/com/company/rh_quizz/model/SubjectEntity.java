@@ -1,4 +1,4 @@
-package com.aubay.rh_quizz.model;
+package com.company.rh_quizz.model;
 
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name = "subject",schema="aubay")
+@Table(name = "subject",schema="public")
 public class SubjectEntity {
 
     @Id

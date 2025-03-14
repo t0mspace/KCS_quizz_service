@@ -1,4 +1,4 @@
-package com.aubay.rh_quizz.service;
+package com.company.rh_quizz.service;
 
 import org.springframework.stereotype.Service;
 

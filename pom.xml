@@ -8,7 +8,7 @@
 		<version>3.3.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.aubay</groupId>
+	<groupId>com.company</groupId>
 	<artifactId>rh_quizz</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>rh_quizz</name>

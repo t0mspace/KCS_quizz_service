@@ -1,35 +1,35 @@
 DROP SEQUENCE IF EXISTS user_id_seq;
 DROP SEQUENCE IF EXISTS role_id_seq;
-DROP TABLE IF EXISTS aubay.role CASCADE;
-DROP TABLE IF EXISTS aubay.user CASCADE;
-DROP SCHEMA IF EXISTS aubay;
+DROP TABLE IF EXISTS public.role CASCADE;
+DROP TABLE IF EXISTS public.user CASCADE;
+DROP SCHEMA IF EXISTS public;
 
-CREATE SCHEMA IF NOT EXISTS aubay ;
+CREATE SCHEMA IF NOT EXISTS public ;
 
-CREATE SEQUENCE aubay.user_id_seq;
-CREATE SEQUENCE aubay.role_id_seq;
+CREATE SEQUENCE public.user_id_seq;
+CREATE SEQUENCE public.role_id_seq;
 
 
-CREATE TABLE aubay.role
+CREATE TABLE public.role
 (
     id integer UNIQUE,
     name character varying(50) NOT NULL,
     PRIMARY KEY (name)
 );
 
-INSERT INTO aubay.role(id, name)
+INSERT INTO public.role(id, name)
 VALUES (1,'ROLE_ADMIN');
 
-INSERT INTO aubay.role(name)
+INSERT INTO public.role(name)
 VALUES ('ROLE_USER');
 
 
-CREATE TABLE aubay.user (
+CREATE TABLE public.user (
                         id integer NOT NULL,
                         "username" varchar(250) UNIQUE NOT NULL,
                         "id_role" integer NOT NULL,
                         CONSTRAINT fk_id_role FOREIGN KEY (id_role)
-                            REFERENCES aubay.role (id),
+                            REFERENCES public.role (id),
                         "email" varchar(250) UNIQUE NOT NULL,
                         "token" varchar(250),
                         password character varying(60) NOT NULL
@@ -48,9 +48,9 @@ CREATE TABLE aubay.user (
 
 
 
-INSERT INTO aubay.user (id, username, id_role, email, token, password) VALUES (1,'dtrump', 1, 'dtrump@gmail.com', null, '$2a$12$RkcdJn2kLrAS9fmvDv/CWehqID8nB3XBWXOtazhQ2PY1ZFwDB3L76');
-INSERT INTO aubay.user (id,username, id_role, email, token, password) VALUES (2,'emusk', 1, 'emusk@gmail.com', null, '$2a$12$RkcdJn2kLrAS9fmvDv/CWehqID8nB3XBWXOtazhQ2PY1ZFwDB3L76');
-INSERT INTO aubay.user (id,username, id_role, email, token, password) VALUES (3,'aeinstein', 1, 'aeinstein@gmail.com', null, '$2a$12$RkcdJn2kLrAS9fmvDv/CWehqID8nB3XBWXOtazhQ2PY1ZFwDB3L76');
+INSERT INTO public.user (id, username, id_role, email, token, password) VALUES (1,'dtrump', 1, 'dtrump@gmail.com', null, '$2a$12$RkcdJn2kLrAS9fmvDv/CWehqID8nB3XBWXOtazhQ2PY1ZFwDB3L76');
+INSERT INTO public.user (id,username, id_role, email, token, password) VALUES (2,'emusk', 1, 'emusk@gmail.com', null, '$2a$12$RkcdJn2kLrAS9fmvDv/CWehqID8nB3XBWXOtazhQ2PY1ZFwDB3L76');
+INSERT INTO public.user (id,username, id_role, email, token, password) VALUES (3,'aeinstein', 1, 'aeinstein@gmail.com', null, '$2a$12$RkcdJn2kLrAS9fmvDv/CWehqID8nB3XBWXOtazhQ2PY1ZFwDB3L76');
 
 
 -- CREATE TYPE "test_status" AS ENUM (
